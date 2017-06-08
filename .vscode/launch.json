@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "protocol": "inspector",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${workspaceRoot}/index.js",
+            "sourceMaps": true
+        }, {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach To Process",
+            "port": 8000
+        }
+    ]
+}

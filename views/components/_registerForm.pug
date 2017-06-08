@@ -1,0 +1,20 @@
+mixin registerForm()
+    form(action="/register" method="POST" class="form-wrapper")
+
+        .form-group
+            label(for="name") Nimi
+            input(type="text" name="name" class="form-control" placeholder="Nimi" autofocus)
+
+        .form-group
+            label(for="email") E- mail
+            input(type="email" name="email" class="form-control" placeholder="E- mail")
+
+        .form-group
+            label(for="password") Parool
+            input(type="password" name="password" class="form-control" placeholder="Sisesta parool")
+
+        .form-group
+            label(for="password-confirm") Kinnita parool
+            input(type="password" name="password-confirm" class="form-control" placeholder="Sisesta parool uuesti")
+
+        button(type="submit" class="btn main btn-primary") Registreeri

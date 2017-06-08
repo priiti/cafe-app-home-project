@@ -1,0 +1,34 @@
+doctype html
+html
+    head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    meta(name="description" content="")
+    link(href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet")
+    link(href="/css/bootstrap.min.css", rel="stylesheet", )
+    link(href="/css/main.css", rel="stylesheet")
+    link(href="/fonts/font-awesome.min.css", rel="stylesheet")
+    title #{title}
+body
+    include components/_header
+    block header
+        +header()
+    
+    include components/_flashMessages
+    block messages
+        .container
+            - const categories = Object.keys(locals.flashes)
+                each category in categories
+                    each message in flashes[category]
+                        +flashMessages(category, message)
+
+    block content
+
+    include components/_footer
+    block footer
+        +footer()
+
+    script(src="/dist/App.bundle.js")
+    script(src="/js/tether.min.js")
+    script(src="/js/jquery-3.2.1.min.js")
+    script(src="/js/bootstrap.min.js")

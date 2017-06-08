@@ -1,0 +1,20 @@
+mixin userAccountForm()
+    form(action="/account" method="POST" class="form-wrapper" enctype="multipart/form-data")
+
+        .form-group
+            label(for="name") Nimi
+            input(type="text" name="name" class="form-control" placeholder="Nimi" value=user.name autofocus)
+        
+        .form-group
+            label(for="email") E- mail
+            input(type="email" name="email" class="form-control" value=user.email placeholder="E- mail")
+        
+        .form-group
+            label(for="photo") Lisa profiilipilt
+            input(type="file" name="photo" class="form-control-file" aria-describedby="fileHelp" id="photo" accept="image/gif, image/png, image/jpeg")
+
+            - if (user.photo)
+                img(src=`/avatars/${user.photo}`, width=200 class="edit-form-image")
+            small(id="fileHelp" class="form-text text-muted") Siit saad lisada oma profiilipildi
+
+        button(type="submit" class="btn main btn-primary") Salvesta andmed

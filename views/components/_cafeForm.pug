@@ -1,0 +1,24 @@
+mixin cafeForm(cafe = {})
+    form(action=`/add/${cafe._id || ''}` method="POST" enctype="multipart/form-data" class="form-wrapper")
+
+        .form-group
+            label(for="name") Nimi
+            input(type="text" name="name" class="form-control" placeholder="Kohviku nimi" value=cafe.name autofocus)
+
+        .form-group
+            label(for="description") Kirjeldus
+            textarea(class="form-control" rows="5" name="description" placeholder="Kohviku kirjeldus...") #{cafe.description}
+
+        .form-group
+            label(for="location") Asukoht
+            input(type="text" name="location" class="form-control" placeholder="Aadress" value=cafe.location)
+
+        .form-group
+            label(for="photo") Lisa pilt
+            input(type="file" name="photo" class="form-control-file" aria-describedby="fileHelp" id="photo" accept="image/gif, image/png, image/jpeg")
+
+            - if (cafe.photo)
+                img(src=`/uploads/${cafe.photo}`, alt=cafe.name width=200 class="edit-form-image")
+            small(id="fileHelp" class="form-text text-muted") Siit saad lisada pildi oma kohvikule
+            
+        button(type="submit" class="btn main btn-primary") Salvesta

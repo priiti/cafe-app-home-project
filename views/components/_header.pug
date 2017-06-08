@@ -1,0 +1,31 @@
+mixin header()
+    nav(class="navbar navbar-fixed-top navbar-toggleable-sm navbar-inverse bg-white flex-nowrap")
+        .container
+            button(class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#collapsingNavbar")
+                span(class="custom-toggler navbar-toggler-icon")
+
+            div(class="d-flex")
+                a(class="navbar-brand" href="/")
+                    i(class="fa fa-home" aria-hidden="true")
+                span(class="navbar-text small text-truncate mt-1")
+
+            div(class="navbar-collapse collapse justify-content-start" id="collapsingNavbar")
+                ul(class="navbar-nav")
+                    each item in h.menu
+                        li(class=(`nav-item ${currentPath.startsWith(item.slug) ? 'active' : null}`))
+                            a(class="nav-link" href=`${item.slug}`) #{item.title}
+                
+                ul(class="navbar-nav ml-auto")
+                    if user
+                        .inset
+                            img(src=`/avatars/${user.photo}`)
+                        li(class=(`nav-item ${currentPath.startsWith('/profile') ? 'active' : null}`))
+                            a(class="nav-link" href="/account") Profiil
+                        li(class="nav-item")
+                            a(class="nav-link" href="/logout") Logi välja
+                    else
+                        li(class=(`nav-item ${currentPath.startsWith('/register') ? 'active' : null}`))
+                            a(class="nav-link" href="/register") Registreeri
+
+                        li(class=(`nav-item ${currentPath.startsWith('/login') ? 'active' : null}`))
+                            a(class="nav-link" href="/login") Logi sisse

@@ -1,0 +1,12 @@
+mixin loginForm()
+    form(action="/login" method="POST" class="form-wrapper")
+
+        .form-group
+            label(for="email") E- mail
+            input(type="text" name="email" class="form-control" placeholder="E- mail" autofocus)
+        
+        .form-group
+            label(for="password") Parool
+            input(type="password" name="password" class="form-control" placeholder="Sisesta parool")
+
+        button(type="submit" class="btn main btn-primary") Logi sisse

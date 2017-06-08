@@ -1,0 +1,252 @@
+body {
+  min-height: 100vh; 
+  font-family: 'PT Serif', serif;
+  margin-bottom: 60px;
+}
+
+html {
+    overflow-y: scroll;
+    position: relative;
+}
+
+/* TYPOGRAPHY */
+h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h1 span {
+
+}
+
+.row {
+    overflow: hidden;
+}
+
+a {
+    cursor: pointer;
+}
+
+/* NAVIGATION */
+.navbar {
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+    min-height: 53px;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.15);
+    background-color: #B5BCC2;
+}
+
+navbar.fixed-top.navbar-toggleable-sm.navbar-inverse.bg-inverse.flex-nowrap {
+    margin-bottom: 60px;
+}
+
+.navbar.bg-white:not(.navbar-transparent) a:not(.dropdown-item) {
+  color: black;
+}
+
+.navbar.bg-white:not(.navbar-transparent) a:not(.dropdown-item):hover {
+    color: #CF5723;
+}
+
+.navbar .navbar-nav .nav-link {
+    text-transform: uppercase;
+    /*font-size: 0.8em;*/
+    padding: 0.5rem 0.7rem;
+    letter-spacing: 2px;
+}
+
+.active {
+    background-color: #E9EAEC;
+    border-radius: 5px;
+}
+
+.navbar-toggler.navbar-toggler-right {
+    outline: none;
+}
+
+.inset {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding-right: 50px;
+    margin: 0;
+    z-index: 9;
+}
+
+.inset img {
+    border-radius: inherit;
+    width: inherit;
+    height: inherit;
+    display: block;
+    position: relative;
+    z-index: 10;
+}
+
+/* JUMBOTRON */
+
+.jumbotron {
+    background-color: white;
+    padding: 1rem 2rem;
+}
+
+/* CONTAINER */
+
+.inner {
+    padding: 40px;
+}
+
+/* FORM */
+
+.form-wrapper {
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid rgba(34, 36, 38, .1);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+}
+
+/* BUTTONS */
+.btn {
+    cursor: pointer;
+}
+
+.btn.main {
+    background-color: #B4D3E8;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+
+.btn.main:hover {
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.24),0 10px 30px 0 rgba(0,0,0,0.19);
+    background-color: #B5EECD;
+    color: black;
+}
+
+/* CARD */
+
+.card {
+    font-size: 1em;
+    overflow: hidden;
+    padding: 0;
+    border: none;
+    border-radius: .28571429rem;
+}
+
+.card-wrapper {
+    border: 1px solid rgba(34, 36, 38, .1);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.card-block {
+    font-size: .8em;
+    position: relative;
+    margin: 0;
+    padding: 1em;
+    border: none;
+    border-top: 1px solid rgba(34, 36, 38, .1);
+    box-shadow: none;
+}
+
+.card-img-top {
+    display: block;
+    width: 100%;
+    max-height: 200px;
+}
+
+.card-title {
+    font-size: 1.28571429em;
+    font-weight: 700;
+    line-height: 1.2857em;
+}
+
+.card-text {
+    clear: both;
+    margin-top: .5em;
+    color: black;
+}
+
+.card-footer {
+    font-size: 1em;
+    position: static;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    padding: .75em 1em;
+    color: rgba(0, 0, 0, .4);
+    border-top: 1px solid rgba(0, 0, 0, .05) !important;
+    background: rgba(0, 0, 0, .05);
+}
+
+.card-inverse .btn {
+    border: 1px solid rgba(0, 0, 0, .05);
+}
+
+.meta {
+    font-size: 1em;
+    color: rgba(0, 0, 0, .4);
+}
+
+.meta a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, .4);
+    
+}
+
+.meta a:hover {
+    color: rgba(0, 0, 0, .87);
+}
+
+.edit-form-image {
+    padding-top: 10px;
+}
+
+/* FLASH MESSAGES */
+.flash__m {
+	animation: shakeFlashMessage forwards .1s ease-in-out 2;
+	animation-timing-function: cubic-bezier(0.01, 1.68, 0.58, 1);
+}
+
+.flash__m + .flash__m {
+	animation-delay: 0.55s; 
+}
+
+.flash__m + .flash__m + .flash__m {
+	animation-delay: 0.6s;
+}
+
+/* FOOTER */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 4rem;
+  line-height: 4rem;
+  background-color: #B5BCC2;
+}
+
+/* ANIMATIONS */
+@keyframes shakeFlashMessage {
+  0% {
+        transform: translateX(-10px);
+    }
+  50% {
+        transform: translateX(10px);
+    }
+  100% {
+        transform: translateX(0px);
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 970px;
+    }
+}

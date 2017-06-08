@@ -1,0 +1,8 @@
+extends layout
+
+include components/_cafeForm
+
+block content
+    .container.inner
+        h1 #{heading}
+        +cafeForm(cafe)

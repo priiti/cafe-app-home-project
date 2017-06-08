@@ -1,0 +1,22 @@
+mixin flashMessages(category, message)
+	- var category = category
+
+	- if (category === 'success')
+		div(class="alert alert-success alert-dismissible fade show flash__m" role="alert") #{message}
+			button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+				span(aria-hidden="true") &times;
+
+	-else if (category === 'info')
+		div(class="alert alert-info alert-dismissible fade show flash__m" role="alert") #{message}
+			button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+				span(aria-hidden="true") &times;
+
+	-else if (category === 'warning')
+		div(class="alert alert-warning alert-dismissible fade show flash__m" role="alert") #{message}
+			button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+				span(aria-hidden="true") &times;
+				
+	-else if (category === 'error')
+		div(class="alert alert-danger alert-dismissible fade show flash__m" role="alert") #{message}
+			button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+				span(aria-hidden="true") &times;

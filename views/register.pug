@@ -1,0 +1,8 @@
+extends layout
+
+include components/_registerForm
+
+block content
+    .container.inner
+        h1 #{heading}
+        +registerForm()

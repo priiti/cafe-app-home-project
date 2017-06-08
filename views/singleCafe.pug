@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    .container.inner
+        h1 #{heading}
+        .col-sm-12.col-md-12.col-lg-12.mt-4.d-flex.align-items-stretch
+            .card-main.card-wrapper
+                img(class="card-img-top" src="https://unsplash.it/300/300")
+                .card-main-block
+                    h4(class="card-title mt-3") #{cafe.name}
+                    .meta
+                        a #{cafe.location}
+                    .card-text #{cafe.description}
+                .card-main-footer
+                    small Date
+                    button(class="btn btn-secondary float-right btn-sm")
