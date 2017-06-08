@@ -22,7 +22,7 @@
   * https://university.mongodb.com/courses/M101JS/about
 
 * Mongoose - interface for Node application and MongoDB
-  * http://mongoosejs.com/docs/3.0.x/docs/guide.html
+  * http://mongoosejs.com/docs/guide.html
 
 * Passport.js for user authentication in Node
   * http://passportjs.org/
