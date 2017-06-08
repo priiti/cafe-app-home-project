@@ -10,16 +10,13 @@
 
 #### Some tutorials, documentation used in this project:
 * Node.js
-
-https://nodejs.org/dist/latest-v8.x/docs/api/
+⋅⋅* https://nodejs.org/dist/latest-v8.x/docs/api/
 
 * Express.js
-
-http://expressjs.com/en/4x/api.html
+⋅⋅* http://expressjs.com/en/4x/api.html
 
 * avoid try {} catch(e) {} blocks witch async/await
-
-http://blog.grossman.io/how-to-write-async-await-without-try-catch-blocks-in-javascript/
+ ⋅⋅*http://blog.grossman.io/how-to-write-async-await-without-try-catch-blocks-in-javascript/
 
 * MongoDB - document based NOSQL database
 
