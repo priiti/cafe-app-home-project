@@ -1,7 +1,7 @@
 # HKI_5002 HOME_PROJECT
-## Cafe webpage
+## Cafe webpage ☕
 
-### Used stack
+### Used stack 🖥️
 * Node.js
 * Express.js
 * Mongo DB
