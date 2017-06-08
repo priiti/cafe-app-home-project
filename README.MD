@@ -16,17 +16,13 @@
   * http://expressjs.com/en/4x/api.html
 
 * avoid try {} catch(e) {} blocks witch async/await
-
-http://blog.grossman.io/how-to-write-async-await-without-try-catch-blocks-in-javascript/
+  * http://blog.grossman.io/how-to-write-async-await-without-try-catch-blocks-in-javascript/
 
 * MongoDB - document based NOSQL database
-
-https://university.mongodb.com/courses/M101JS/about
+  * https://university.mongodb.com/courses/M101JS/about
 
 * Mongoose - interface for Node application and MongoDB
-
-http://mongoosejs.com/docs/3.0.x/docs/guide.html
+  * http://mongoosejs.com/docs/3.0.x/docs/guide.html
 
 * Passport.js for user authentication in Node
-
-http://passportjs.org/
+  * http://passportjs.org/
