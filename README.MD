@@ -26,3 +26,6 @@
 
 * Passport.js for user authentication in Node
   * http://passportjs.org/
+
+* Express app folder hierarchy
+  * https://www.terlici.com/2014/08/25/best-practices-express-structure.html
