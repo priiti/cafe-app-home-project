@@ -1,26 +1,7 @@
 extends layout
 
+include components/_cafesList
+
 block content
-    .container.inner
-        h1
-            span Kohvikud
-        p Otsing?
-        .album
-            .container
-                .row
-                    each cafe in cafes
-                        .col-sm-12.col-md-4.col-lg-4.mt-4.d-flex.align-items-stretch
-                            .card.card-wrapper
-                                img(class="card-img-top" src=`/uploads/${cafe.photo}`)
-                                .card-block
-                                    h4(class="card-title mt-3") #{cafe.name}
-                                    .meta
-                                        a #{cafe.location}
-                                    .card-text #{`${cafe.description.substring(0, 200)}`} ...
-                                .card-footer
-                                    small Date
-                                    a(href=`/cafes/${cafe.slug}`)
-                                        button(class="btn btn-secondary float-right btn-sm") Ava
-                                    if user && cafe.creator.equals(user._id)
-                                        a(href=`/cafes/${cafe._id}/edit`)
-                                            button(class="btn btn-secondary float-right btn-sm") Muuda
+    .container
+        +cafesList(cafes)

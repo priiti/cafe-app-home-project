@@ -10,6 +10,7 @@ mongoose.connection.on('error', error => {
 
 require('./models/Cafe');
 require('./models/User');
+require('./models/Review');
 
 const app = require('./app');
 

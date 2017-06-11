@@ -4,44 +4,13 @@ block content
     section
         .jumbotron.text-center
             .container
-                h1.display-4 Tere, Priit!
+                h1.display-4
+                    if user
+                        h1 Tere, #{user.name}!
+                    else
+                        h1 Tere, tulemast!
                 p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam numquam rerum minima distinctio excepturi veritatis quibusdam molestias totam cumque perspiciatis temporibus quasi ipsa vel voluptatem ut incidunt, modi placeat velit!
 
     .album
         .container.inner
             .row
-                .col-sm-12.col-md-4.col-lg-4.mt-4
-                    .card-wrapper
-                    img(class="card-img-top" src="https://unsplash.it/300/300")
-                    .card-block
-                        h4(class="card-title mt-3") Heading
-                        .meta
-                            a Location
-                        .card-text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat nam quia perferendis, perspiciatis. Quisquam ratione modi repellendus sapiente maiores, aliquid omnis provident at cum quae. Voluptates, modi cumque id maiores!
-                    .card-footer
-                        small Date
-                        button(class="btn btn-secondary float-right btn-sm") Open
-
-                .col-sm-12.col-md-4.col-lg-4.mt-4
-                    .card
-                    img(class="card-img-top" src="https://unsplash.it/300/300")
-                    .card-block
-                        h4(class="card-title mt-3") Heading
-                        .meta
-                            a Location
-                        .card-text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat nam quia perferendis, perspiciatis. Quisquam ratione modi repellendus sapiente maiores, aliquid omnis provident at cum quae. Voluptates, modi cumque id maiores!
-                    .card-footer
-                        small Date
-                        button(class="btn btn-secondary float-right btn-sm") Open
-
-                .col-sm-12.col-md-4.col-lg-4.mt-4
-                    .card
-                    img(class="card-img-top" src="https://unsplash.it/300/300")
-                    .card-block
-                        h4(class="card-title mt-3") Heading
-                        .meta
-                            a Location
-                        .card-text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat nam quia perferendis, perspiciatis. Quisquam ratione modi repellendus sapiente maiores, aliquid omnis provident at cum quae. Voluptates, modi cumque id maiores!
-                    .card-footer
-                        small Date
-                        button(class="btn btn-secondary float-right btn-sm") Open

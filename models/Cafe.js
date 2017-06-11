@@ -14,6 +14,7 @@ const cafeSchema = new mongoose.Schema({
         required: 'Palun sisesta kirjeldus kohviku kohta'
     },
     slug: String,
+    tags: [],
     photo: {
         type: String,
         default: 'default_cafe_image.jpeg'
@@ -22,10 +23,6 @@ const cafeSchema = new mongoose.Schema({
         type: String,
         trim: true,
         required: 'Palun sisesta kohviku asukoht'
-    },
-    role: {
-        type: Number,
-        default: 3
     },
     creator: {
         type: mongoose.Schema.ObjectId,
@@ -37,7 +34,16 @@ const cafeSchema = new mongoose.Schema({
         default: Date.now()
     }
 }, {
-    collection: 'cafes'
+    collection: 'cafes',
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true }
+});
+
+cafeSchema.index({
+    name: 'text',
+    description: 'text',
+    location: 'text',
+    tags: 'text'
 });
 
 cafeSchema.pre('save', async function(next) {
@@ -54,6 +60,23 @@ cafeSchema.pre('save', async function(next) {
     }
 
     next();
+});
+
+cafeSchema.statics.getCafeTagsList = function() {
+    return this.aggregate([
+        { $unwind: '$tags' },
+        { $group: { _id: '$tags', count: { $sum: 1 } } },
+        { $sort: { count: -1 } }
+    ]);
+};
+
+// Find reviews where cafes _id property === reviews cafe _id property
+// Virtual fields does not go into an object
+// We could add virtual fields by specifing in model options toJSON toObject virtuals to true
+cafeSchema.virtual('reviews', {
+    ref: 'Review',
+    localField: '_id',
+    foreignField: 'cafe'
 });
 
 module.exports = mongoose.model('Cafe', cafeSchema);

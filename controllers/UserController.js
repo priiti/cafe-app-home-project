@@ -55,7 +55,7 @@ exports.registerUserIntoDatabase = async (req, res, next) => {
 
     const registrationPromiseForUser = promisify(User.register, User);
     await registrationPromiseForUser(user, req.body.password);
-
+    
     next();
 };
 
@@ -68,7 +68,8 @@ exports.userAccount = (req, res) => {
 exports.updateRegisteredUserAccount = async (req, res) => {
     const updateUserAccountDataDetails = {
         name: req.body.name,
-        email: req.body.email
+        email: req.body.email,
+        photo: req.body.photo
     };
 
     const user = await User.findOneAndUpdate(

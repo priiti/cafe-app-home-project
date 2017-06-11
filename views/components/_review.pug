@@ -1,0 +1,8 @@
+mixin review(review)
+    hr
+    .single-cafe-comments
+        .review-post
+            .review-post-author #{review.author.name}
+            .review-post-meta Lisatud: #{h.moment(review.created).locale('et').fromNow()}
+            .review-post-meta Hinnang: #{review.rating}
+            .review-post-text #{review.text}

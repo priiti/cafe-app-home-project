@@ -1,0 +1,29 @@
+mixin reviewForm(cafe)
+    hr
+    .single-cafe-review
+        form(action=`/reviews/${cafe._id}` method="POST")
+            .form-group
+                label(for="text") Arvustus
+                textarea(class="form-control" name="text" rows="3" placeholder="Kirjuta arvutus selle kohviku kohta...")
+            .form-check.form-check-inline
+                label.form-check-label(for="rating")
+                input#inlineRadio1.form-check-input(type='radio', name='rating', value='1')
+                |  1
+            .form-check.form-check-inline
+                label.form-check-label(for="rating")
+                input#inlineRadio2.form-check-input(type='radio', name='rating', value='2')
+                |  2
+            .form-check.form-check-inline
+                label.form-check-label(for="rating")
+                input#inlineRadio2.form-check-input(type='radio', name='rating', value='3')
+                |  3
+            .form-check.form-check-inline
+                label.form-check-label(for="rating")
+                input#inlineRadio2.form-check-input(type='radio', name='rating', value='4')
+                |  4
+            .form-check.form-check-inline
+                label.form-check-label(for="rating")
+                input#inlineRadio2.form-check-input(type='radio', name='rating', value='5')
+                |  5
+            br
+            button(type="submit" class="btn main btn-primary") Saada hinnang

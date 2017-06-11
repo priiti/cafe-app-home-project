@@ -10,15 +10,18 @@ mixin header()
                 span(class="navbar-text small text-truncate mt-1")
 
             div(class="navbar-collapse collapse justify-content-start" id="collapsingNavbar")
+
                 ul(class="navbar-nav")
                     each item in h.menu
                         li(class=(`nav-item ${currentPath.startsWith(item.slug) ? 'active' : null}`))
                             a(class="nav-link" href=`${item.slug}`) #{item.title}
-                
+                    .form-inline.search-cafe-input
+                        input(type="text" class="form-control search-cafe-box" name="search" placeholder="Otsi kohvikut...")
+                        .search-cafe-results
                 ul(class="navbar-nav ml-auto")
                     if user
                         .inset
-                            img(src=`/avatars/${user.photo}`)
+                            img(src=`avatars/${user.photo}`)
                         li(class=(`nav-item ${currentPath.startsWith('/profile') ? 'active' : null}`))
                             a(class="nav-link" href="/account") Profiil
                         li(class="nav-item")

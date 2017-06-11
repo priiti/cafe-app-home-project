@@ -19,5 +19,5 @@ exports.userIsLoggedIn = (req, res, next) => {
     }
 
     req.flash('warning', 'Selle lehe külastamiseks pead olema sisse logitud');
-    res.redirect('/');
+    res.redirect('/login');
 };

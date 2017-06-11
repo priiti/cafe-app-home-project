@@ -1,16 +1,21 @@
 extends layout
 
+include components/_reviewForm
+include components/_review
+
 block content
-    .container.inner
-        h1 #{heading}
-        .col-sm-12.col-md-12.col-lg-12.mt-4.d-flex.align-items-stretch
-            .card-main.card-wrapper
-                img(class="card-img-top" src="https://unsplash.it/300/300")
-                .card-main-block
-                    h4(class="card-title mt-3") #{cafe.name}
-                    .meta
-                        a #{cafe.location}
-                    .card-text #{cafe.description}
-                .card-main-footer
-                    small Date
-                    button(class="btn btn-secondary float-right btn-sm")
+    .container
+        .single
+            .single-cafe
+                span(class="single-cafe-header" style=`background-image: url(../uploads/${cafe.photo});`)
+                .single-cafe-name
+                    h2 #{cafe.name}
+                .single-cafe-summary
+                    i(class="fa fa-map-marker")  #{cafe.location}
+                .single-cafe-summary
+                    p #{cafe.description}
+                if user
+                    +reviewForm(cafe)
+                if cafe.reviews
+                    each r in cafe.reviews
+                        +review(r)

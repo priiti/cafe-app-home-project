@@ -7,6 +7,7 @@ exports.getAllCafes = async (req, res) => {
 
     res.render('cafes', {
         title: 'Kohvikud',
+        heading: 'Kohvikud',
         cafes: cafes
     });
 };
@@ -33,7 +34,7 @@ exports.saveNewCafeIntoDatabase = async (req, res) => {
     const cafe = await (new Cafe(req.body)).save();
 
     req.flash('success', 'Kohviku lisamine õnnestus');
-    res.redirect(`/cafes/${cafe.slug}`);
+    res.redirect(`/cafe/${cafe.slug}`);
 };
 
 exports.editCafeData = async (req, res) => {
@@ -67,7 +68,7 @@ exports.updateCafeDataChanges = async (req, res) => {
     ).exec();
 
     req.flash('success', `Kohviku andmed muudetud`);
-    res.redirect(`/cafes/${cafe.slug}`);
+    res.redirect(`/cafe/${cafe.slug}`);
 };
 
 exports.getTopCafes = (req, res) => {
@@ -78,7 +79,7 @@ exports.getTopCafes = (req, res) => {
 };
 
 exports.getCafeBySlugName = async (req, res, next) => {
-    const cafe = await Cafe.findOne({ slug: req.params.slug }).populate('creator');
+    const cafe = await Cafe.findOne({ slug: req.params.slug }).populate('creator reviews');
 
     if (!cafe) {
         next();
@@ -90,3 +91,17 @@ exports.getCafeBySlugName = async (req, res, next) => {
         cafe: cafe
     });
 };
+
+exports.searchCafesByNameAndDescription = async (req, res) => {
+    const cafes = await Cafe.find({
+        $text: {
+            $search: req.query.q
+        }
+    }, {
+        score: { $meta: 'textScore' }
+    }).sort({
+        score: { $meta: 'textScore' }
+    });
+
+    res.json(cafes);
+}

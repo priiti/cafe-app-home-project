@@ -1,0 +1,12 @@
+mixin cafesList(cafes)
+    .cards
+        each cafe in cafes
+            a(class="card" href=`cafe/${cafe.slug}`)
+                span(class="card-header" style=`background-image: url(uploads/${cafe.photo});`)
+                    span(class="card-title")
+                        h3 #{cafe.name}
+                span(class="card-summary location") 
+                    i(class="fa fa-map-marker")  #{cafe.location}     
+                span(class="card-summary") #{cafe.description}
+                span(class="card-summary stars")
+                    i(class="fa fa-star")  Hinnang

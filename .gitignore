@@ -5,3 +5,4 @@ node_modules/
 variables.env
 .vscode
 public/uploads/
+public/avatars/

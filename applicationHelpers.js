@@ -5,3 +5,5 @@ exports.menu = [
 ];
 
 exports.dump = (obj) => JSON.stringify(obj, null, 2);
+
+exports.moment = require('moment');
