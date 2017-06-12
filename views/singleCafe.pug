@@ -13,7 +13,7 @@ block content
                 .single-cafe-summary
                     i(class="fa fa-map-marker")  #{cafe.location}
                 .single-cafe-summary
-                    p #{cafe.description}
+                    p.single-cafe-description #{cafe.description}
                 if user
                     +reviewForm(cafe)
                 if cafe.reviews

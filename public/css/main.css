@@ -154,6 +154,10 @@ navbar.fixed-top.navbar-toggleable-sm.navbar-inverse.bg-inverse.flex-nowrap {
     padding: 1% 5%;
 }
 
+.single-cafe-description {
+    white-space: pre-line;
+}
+
 .single-cafe-comments {
     padding: 1% 5%;
     background-color: white;
