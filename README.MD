@@ -8,6 +8,9 @@
 * Pug template engine
 * Passport.js
 
+#### Live site
+* https://cafe-home-project.herokuapp.com/
+
 #### Some tutorials, documentation used in this project:
 * Node.js
   * https://nodejs.org/dist/latest-v8.x/docs/api/
