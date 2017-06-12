@@ -7,6 +7,6 @@ mixin cafesList(cafes)
                         h3 #{cafe.name}
                 span(class="card-summary location") 
                     i(class="fa fa-map-marker")  #{cafe.location}     
-                span(class="card-summary") #{cafe.description}
+                span(class="card-summary") #{cafe.description.substring(0, 200)}...
                 span(class="card-summary stars")
                     i(class="fa fa-star")  Hinnang

@@ -28,6 +28,10 @@ a {
     text-decoration: none;
 }
 
+/*p { 
+    white-space: pre;
+}*/
+
 hr {
     margin: 0;
 }
