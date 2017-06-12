@@ -14,7 +14,7 @@ router.get('/', HomepageController.home);
 router.get('/cafes', CafeController.getAllCafes);
 router.get('/cafe/:slug', CafeController.getCafeBySlugName);
 router.get('/top', CafeController.getTopCafes);
-router.get('/add', 
+router.get('/add',
     AuthController.userIsLoggedIn,
     CafeController.addNewCafe
 );

@@ -8,14 +8,24 @@ block content
         .single
             .single-cafe
                 span(class="single-cafe-header" style=`background-image: url(../uploads/${cafe.photo});`)
+
                 .single-cafe-name
-                    h2 #{cafe.name}
+                    h2.display-4 #{cafe.name}
+
                 .single-cafe-summary
                     i(class="fa fa-map-marker")  #{cafe.location}
+
+                if user && cafe.creator.equals(user._id)
+                    .single-cafe-summary
+                        a(href=`/cafe/${cafe._id}/edit`)
+                            i(class="fa fa-pencil")  Muuda
+
                 .single-cafe-summary
-                    p.single-cafe-description #{cafe.description}
+                    p #{cafe.description}
+
                 if user
                     +reviewForm(cafe)
+                    
                 if cafe.reviews
                     each r in cafe.reviews
                         +review(r)
