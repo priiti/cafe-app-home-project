@@ -2,6 +2,10 @@
   "name": "bootstrap",
   "version": "1.0.0",
   "description": "",
+  "private": true,
+  "engines": {
+    "node": ">= 7.6.0"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js",
