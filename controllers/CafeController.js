@@ -79,7 +79,11 @@ exports.getTopCafes = (req, res) => {
 };
 
 exports.getCafeBySlugName = async (req, res, next) => {
-    const cafe = await Cafe.findOne({ slug: req.params.slug }).populate('creator reviews');
+    const cafe = await Cafe.findOne({ slug: req.params.slug })
+        .populate({
+            path: 'creator reviews',
+            options: { sort: { 'created': -1 } }
+    });
 
     if (!cafe) {
         next();
