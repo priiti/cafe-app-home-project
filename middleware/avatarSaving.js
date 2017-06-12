@@ -12,15 +12,17 @@ exports.resizeImage = async (req, res, next) => {
 
     const photoFileType = req.file.mimetype.split('/')[1];
     
-    console.log(photoFileType);
+    if (req.user.photo === 'default-avatar.png') {
+        req.body.photo = `${uuid.v4()}.${photoFileType}`;
+    } else {
+        req.body.photo = req.user.photo;
+    }
 
-    // req.body.photo = `${uuid.v4()}.${photoFileType}`;
+    const photo = await jimp.read(req.file.buffer);
 
-    // const photo = await jimp.read(req.file.buffer);
+    await photo.resize(400, jimp.AUTO);
 
-    // await photo.resize(400, jimp.AUTO);
+    await photo.write(`./public/avatars/${req.body.photo}`);
 
-    // await photo.write(`./public/avatars/${req.body.photo}`);
-
-    // next();
+    next();
 };

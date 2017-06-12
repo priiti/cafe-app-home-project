@@ -1,5 +1,8 @@
 extends layout
 
+include components/_topCafesTable
+
 block content
     .container.inner
         h1 Top 10
+        +topCafesTable(cafes)

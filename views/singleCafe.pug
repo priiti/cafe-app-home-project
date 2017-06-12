@@ -14,16 +14,17 @@ block content
 
                 .single-cafe-summary
                     i(class="fa fa-map-marker")  #{cafe.location}
+                    i(class="fa fa-star")  Hinnang
 
                 if user && cafe.creator.equals(user._id)
                     .single-cafe-summary
                         a(href=`/cafe/${cafe._id}/edit`)
-                            i(class="fa fa-pencil")  Muuda
+                            i(class="fa fa-pencil")  Muuda kohviku andmeid
 
                 .single-cafe-summary
                     p #{cafe.description}
 
-                if user
+                if user && !cafe.creator.equals(user._id)
                     +reviewForm(cafe)
                     
                 if cafe.reviews

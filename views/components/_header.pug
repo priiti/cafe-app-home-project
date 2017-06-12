@@ -21,7 +21,7 @@ mixin header()
                 ul(class="navbar-nav ml-auto")
                     if user
                         .inset
-                            img(src=`avatars/${user.photo}`)
+                            img(src=`/avatars/${user.photo}`)
                         li(class=(`nav-item ${currentPath.startsWith('/profile') ? 'active' : null}`))
                             a(class="nav-link" href="/account") Profiil
                         li(class="nav-item")
