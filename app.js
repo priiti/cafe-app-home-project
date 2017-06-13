@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const path = require('path');
 const router = require('./routes/router');
+const adminRouter = require('./routes/adminRouter');
 const expressValidator = require('express-validator');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
@@ -55,6 +56,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/', router);
+app.use('/admin', adminRouter);
 
 app.use(handleErrors.pageNotFound);
 

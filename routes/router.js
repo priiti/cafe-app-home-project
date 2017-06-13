@@ -1,77 +1,77 @@
 const express = require('express');
 const router = express.Router();
-const HomepageController = require('../controllers/HomepageController');
-const CafeController = require('../controllers/CafeController')
-const UserController = require('../controllers/UserController');
-const AuthController = require('./../controllers/AuthController');
-const ReviewController = require('./../controllers/ReviewController');
+const homepageController = require('../controllers/homepageController');
+const cafeController = require('../controllers/cafeController')
+const userController = require('../controllers/userController');
+const authController = require('./../controllers/authController');
+const reviewController = require('./../controllers/reviewController');
 const imageSaving = require('./../middleware/imageSaving');
 const avatarSaving = require('./../middleware/avatarSaving');
 const { catchErrors } = require('./../applicationErrorHandling/handleErrors');
 
 // GET
-router.get('/', HomepageController.home);
-router.get('/cafes', CafeController.getAllCafes);
-router.get('/cafe/:slug', CafeController.getCafeBySlugName);
-router.get('/top', CafeController.getTopCafes);
+router.get('/', homepageController.home);
+router.get('/cafes', cafeController.getAllCafes);
+router.get('/cafe/:slug', cafeController.getCafeBySlugName);
+router.get('/top', cafeController.getTopCafes);
 router.get('/add',
-    AuthController.userIsLoggedIn,
-    CafeController.addNewCafe
+    authController.userIsLoggedIn,
+    cafeController.addNewCafe
 );
 
 router.get('/cafe/:id/edit',
-    AuthController.userIsLoggedIn,
-    catchErrors(CafeController.editCafeData)
+    authController.userIsLoggedIn,
+    catchErrors(cafeController.editCafeData)
 );
 
-router.get('/register', UserController.register);
-router.get('/login', UserController.login);
-router.get('/logout', AuthController.logout);
+router.get('/register', userController.register);
+router.get('/login', userController.login);
+router.get('/logout', authController.logout);
 router.get('/account', 
-    AuthController.userIsLoggedIn,
-    UserController.userAccount
+    authController.userIsLoggedIn,
+    userController.userAccount
 );
 
 // POST
 router.post('/add',
-    AuthController.userIsLoggedIn,
+    authController.userIsLoggedIn,
     imageSaving.uploadImage,
     catchErrors(imageSaving.resizeImage),
-    catchErrors(CafeController.saveNewCafeIntoDatabase)
+    catchErrors(cafeController.saveNewCafeIntoDatabase)
 );
 
 router.post('/add/:id',
-    AuthController.userIsLoggedIn,
+    authController.userIsLoggedIn,
     imageSaving.uploadImage,
     catchErrors(imageSaving.resizeImage),
-    catchErrors(CafeController.updateCafeDataChanges)
+    catchErrors(cafeController.updateCafeDataChanges)
 );
 
 router.post('/reviews/:id',
-    AuthController.userIsLoggedIn,
-    catchErrors(ReviewController.addNewCafeReview)
+    authController.userIsLoggedIn,
+    catchErrors(reviewController.addNewCafeReview)
 );
 
 router.post('/login',
-    AuthController.login
+    authController.login
 );
 
 router.post('/register',
-    UserController.validateUserRegistrationForm,
-    catchErrors(UserController.registerUserIntoDatabase),
-    AuthController.login
+    userController.validateUserRegistrationForm,
+    catchErrors(userController.registerUserIntoDatabase),
+    authController.login
 );
 
 router.post('/account',
-    AuthController.userIsLoggedIn,
+    authController.userIsLoggedIn,
     avatarSaving.uploadImage,
     catchErrors(avatarSaving.resizeImage),
-    catchErrors(UserController.updateRegisteredUserAccount)
+    catchErrors(userController.updateRegisteredUserAccount)
 );
 
 /* API routes */
 router.get('/api/v1/search', 
-    catchErrors(CafeController.searchCafesByNameAndDescription)
+    catchErrors(cafeController.searchCafesByNameAndDescription)
 );
 
 module.exports = router;

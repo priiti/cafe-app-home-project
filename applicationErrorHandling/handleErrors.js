@@ -7,6 +7,7 @@ exports.catchErrors = (fn) => {
 exports.pageNotFound = (req, res, next) => {
 	const error = new Error('Lehte ei leitud!');
 	error.status = 404;
+
 	next(error);
 };
 
@@ -17,6 +18,7 @@ exports.flashValidationErrors = (error, req, res, next) => {
 	errorKeys.forEach((key) => {
 		req.flash('error', error.errors[key].message);
 	});
+
 	res.redirect('/');
 };
 
@@ -27,6 +29,7 @@ exports.developmentErrors = (error, req, res, next) => {
 		status: error.status,
 		errorStack: error.stack
 	}
+	
 	res.status(error.status || 500);
 	res.format({
 		'text/html': () => {

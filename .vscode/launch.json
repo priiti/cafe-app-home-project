@@ -12,7 +12,7 @@
             "type": "node",
             "request": "attach",
             "name": "Attach To Process",
-            "port": 8000
+            "port": 9000
         }
     ]
 }
