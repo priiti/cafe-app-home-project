@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const homepageController = require('./../controllers/homepageController');
 const cafeController = require('./../controllers/cafeController')
 const userController = require('./../controllers/userController');
 const authController = require('./../controllers/authController');
 const reviewController = require('./../controllers/reviewController');
+const homepageController = require('./../controllers/homepageController');
 const imageSaving = require('./../middleware/imageSaving');
 const avatarSaving = require('./../middleware/avatarSaving');
 const { catchErrors } = require('./../applicationErrorHandling/handleErrors');
