@@ -56,7 +56,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/', router);
-app.use('/admin', adminRouter);
+// app.use('/admin', adminRouter);
 
 app.use(handleErrors.pageNotFound);
 
