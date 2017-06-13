@@ -10,6 +10,7 @@ const avatarSaving = require('./../middleware/avatarSaving');
 const { catchErrors } = require('./../applicationErrorHandling/handleErrors');
 
 // GET
+// Cafe routes
 router.get('/', homepageController.home);
 router.get('/cafes', cafeController.getAllCafes);
 router.get('/cafe/:slug', cafeController.getCafeBySlugName);
@@ -24,6 +25,7 @@ router.get('/cafe/:id/edit',
     catchErrors(cafeController.editCafeData)
 );
 
+// User routes
 router.get('/register', userController.register);
 router.get('/login', userController.login);
 router.get('/logout', authController.logout);
@@ -33,6 +35,7 @@ router.get('/account',
 );
 
 // POST
+// Cafe routes
 router.post('/add',
     authController.userIsLoggedIn,
     imageSaving.uploadImage,
@@ -52,6 +55,7 @@ router.post('/reviews/:id',
     catchErrors(reviewController.addNewCafeReview)
 );
 
+// User routes
 router.post('/login',
     authController.login
 );

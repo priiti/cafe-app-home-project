@@ -944,36 +944,7 @@ var addressInput = function addressInput(input) {
 exports.default = addressInput;
 
 /***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-// based on https://gist.github.com/paulirish/12fb951a8b893a454b32
-
-var $ = document.querySelector.bind(document);
-var $$ = document.querySelectorAll.bind(document);
-
-Node.prototype.on = window.on = function (name, fn) {
-  this.addEventListener(name, fn);
-};
-
-NodeList.prototype.__proto__ = Array.prototype; // eslint-disable-line
-
-NodeList.prototype.on = NodeList.prototype.addEventListener = function (name, fn) {
-  this.forEach(function (elem) {
-    elem.on(name, fn);
-  });
-};
-
-exports.$ = $;
-exports.$$ = $$;
-
-/***/ }),
+/* 9 */,
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1868,8 +1839,6 @@ function isSlowBuffer(obj) {
 "use strict";
 
 
-var _bling = __webpack_require__(9);
-
 var _searchForCafe = __webpack_require__(10);
 
 var _searchForCafe2 = _interopRequireDefault(_searchForCafe);
@@ -1880,8 +1849,8 @@ var _addressInput2 = _interopRequireDefault(_addressInput);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _searchForCafe2.default)((0, _bling.$)('.search-cafe-input'));
-(0, _addressInput2.default)((0, _bling.$)('#address'));
+(0, _searchForCafe2.default)(document.querySelector('.search-cafe-input'));
+(0, _addressInput2.default)(document.querySelector('#address'));
 
 /***/ })
 /******/ ]);

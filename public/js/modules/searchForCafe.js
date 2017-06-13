@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const searchResultsToHtmlDocument = (cafes) => {
+const searchResultsToHtmlDocument = cafes => {
     return cafes.map(cafe => {
         return `
             <a href="/cafe/${cafe.slug}" class="search-cafe-result">

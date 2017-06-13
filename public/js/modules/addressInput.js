@@ -1,4 +1,4 @@
-const addressInput = (input) => {
+const addressInput = input => {
     if (!input) 
         return;
     
