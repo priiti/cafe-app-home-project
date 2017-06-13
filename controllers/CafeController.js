@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Cafe = mongoose.model('Cafe');
-const { checkIfUserIsOwner,  checkUserRolesAndPermissions } = require('./../middleware/cafeUserRolers');
+const { isUserCafeOwner,  checkUserRolesAndPermissions } = require('./../middleware/permissions');
 
 exports.getAllCafes = async (req, res) => {
     const cafes = await Cafe.find();
@@ -40,7 +40,7 @@ exports.saveNewCafeIntoDatabase = async (req, res) => {
 exports.editCafeData = async (req, res) => {
     const singleCafe = await Cafe.findOne({ _id: req.params.id });
 
-    if (!checkIfUserIsOwner(singleCafe, req.user)) {
+    if (!isUserCafeOwner(singleCafe, req.user)) {
         req.flash('warning', 'Sa pead olema kohviku omanik, et teha muudatusi kohviku andmetes');
         res.redirect(`/cafes`);
     }
@@ -59,7 +59,7 @@ exports.updateCafeDataChanges = async (req, res) => {
     }
 
     req.body.creator = req.user._id;
-    console.log(req.body);
+    
     const cafe = await Cafe.findOneAndUpdate({ _id: req.params.id },
         req.body, {
             new: true,

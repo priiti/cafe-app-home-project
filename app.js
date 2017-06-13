@@ -27,6 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(expressValidator());
+
 app.use(cookieParser());
 
 app.use(session({
@@ -34,7 +35,7 @@ app.use(session({
   key: process.env.KEY,
   resave: false,
   saveUninitialized: false,
-  cafe: new MongoStore({ mongooseConnection: mongoose.connection })
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
 app.use(passport.initialize());
@@ -56,7 +57,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/', router);
-// app.use('/admin', adminRouter);
+app.use('/admin', adminRouter);
 
 app.use(handleErrors.pageNotFound);
 

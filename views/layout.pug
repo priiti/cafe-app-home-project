@@ -28,6 +28,7 @@ body
     block footer
         +footer()
 
+    script(src=`https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_KEY}&libraries=places&language=et&region=ET"`)
     script(src="/dist/App.bundle.js")
     script(src="/js/tether.min.js")
     script(src="/js/jquery-3.2.1.min.js")

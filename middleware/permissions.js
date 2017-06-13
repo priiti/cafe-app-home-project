@@ -1,4 +1,4 @@
-exports.checkIfUserIsOwner = (cafe, creator) => {
+exports.isUserCafeOwner = (cafe, creator) => {
     if (!cafe.creator.equals(creator._id)) {
         return false;
     }

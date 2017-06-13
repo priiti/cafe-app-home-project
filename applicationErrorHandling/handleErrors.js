@@ -19,7 +19,7 @@ exports.flashValidationErrors = (error, req, res, next) => {
 		req.flash('error', error.errors[key].message);
 	});
 
-	res.redirect('/');
+	res.redirect('back');
 };
 
 exports.developmentErrors = (error, req, res, next) => {
