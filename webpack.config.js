@@ -1,4 +1,4 @@
-// Config file to bundle all 'public' js and es6 js into bundle for usage in front end
+// Bundler
 const path = require('path');
 const webpack = require('webpack');
 
