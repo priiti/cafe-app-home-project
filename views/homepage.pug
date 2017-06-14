@@ -1,5 +1,7 @@
 extends layout
 
+include components/_cafesList
+
 block content
     section
         .jumbotron.text-center
@@ -10,7 +12,6 @@ block content
                     else
                         h1 Tere, tulemast!
                 p Siin lehel saad vaadata Haapsalu kohvikuid, neid hinnata ja kommenteerida.
-
-    .album
-        .container.inner
-            .row
+    .container
+        if cafes
+            +cafesList(cafes)
