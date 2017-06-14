@@ -10,7 +10,7 @@ const searchResultsToHtmlDocument = cafes => {
     }).join('');
 };
 
-const typeForSearch = (searchTerm) => {
+const typeForSearch = searchTerm => {
     if (!searchTerm) return;
     
     const searchInput = searchTerm.querySelector('input[name="search"]');

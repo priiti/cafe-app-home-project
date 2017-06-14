@@ -84,6 +84,7 @@ cafeSchema.statics.getTopRatedCafes = function() {
             name: '$$ROOT.name',
             reviews: '$$ROOT.reviews',
             location: '$$ROOT.location',
+            slug: '$$ROOT.slug',
             averageRating: { $avg: '$reviews.rating' }
         } },
         { $sort: { averageRating: -1 } },

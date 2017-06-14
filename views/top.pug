@@ -12,7 +12,7 @@ block content
                     th Keskmine hinnang
             tbody
                 each cafe, i in cafes
-                    tr
+                    tr(id=`${cafe.slug}`)
                         td #{i + 1}
                         td #{cafe.name}
                         td #{cafe.location}

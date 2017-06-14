@@ -1848,8 +1848,11 @@ var _addressInput2 = _interopRequireDefault(_addressInput);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import tableHandler from './modules/tableHandler';
+
 (0, _searchForCafe2.default)(document.querySelector('.search-cafe-input'));
 (0, _addressInput2.default)(document.querySelector('#address'));
+// tableHandler(document.querySelector('tr'));
 
 /***/ })
 /******/ ]);
