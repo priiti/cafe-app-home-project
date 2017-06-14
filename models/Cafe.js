@@ -101,7 +101,11 @@ cafeSchema.virtual('reviews', {
 });
 
 function autoPopulate(next) {
-    this.populate({ path: 'creator reviews', options: { $sort: { 'created': -1 } } });
+    this.populate({
+        path: 'creator reviews', 
+        options: { $sort: { 'created': -1 } } 
+    });
+    
     next();
 }
 
