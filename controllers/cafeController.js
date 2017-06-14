@@ -74,11 +74,10 @@ exports.updateCafeDataChanges = async (req, res) => {
     res.redirect(`/cafe/${cafe.slug}`);
 };
 
-exports.getTopCafes = (req, res) => {
-    res.render('top', {
-        title: 'Top 10',
-        heading: 'Top 10'
-    });
+exports.getTopRatedCafes = async (req, res) => {
+    const cafes = await Cafe.getTopRatedCafes();
+
+    res.json(cafes);
 };
 
 exports.getCafeBySlugName = async (req, res, next) => {

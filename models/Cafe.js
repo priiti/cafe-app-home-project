@@ -70,6 +70,26 @@ cafeSchema.statics.getCafeTagsList = function() {
     ]);
 };
 
+cafeSchema.statics.getTopRatedCafes = function() {
+    return this.aggregate([
+        // Cafes and populate with reviews
+        { $lookup: { from: 'reviews', localField: '_id', foreignField: 'cafe', as: 'reviews' } },
+        { $match: { 'reviews.1': { $exists: true } } },
+        // Average rating
+        // MongodDB version >= 3.4
+        // { $addFields: {
+        //     averageRating: { $avg: '$reviews.rating' }
+        // } }
+        { $project: {
+            averageRating: { $avg: '$reviews.rating' },
+            name: '$$ROOT.name',
+            reviews: '$$ROOT.reviews'
+        } },
+        { $sort: { averageRating: -1 } },
+        { $limit: 10 }
+    ]);
+};
+
 // Find reviews where cafes _id property === reviews cafe _id property
 // Virtual fields does not go into an object
 // We could add virtual fields by specifing in model options toJSON toObject virtuals to true

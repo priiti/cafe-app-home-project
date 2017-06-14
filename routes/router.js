@@ -13,8 +13,14 @@ const { catchErrors } = require('./../applicationErrorHandling/handleErrors');
 // Cafe routes
 router.get('/', homepageController.home);
 router.get('/cafes', cafeController.getAllCafes);
-router.get('/cafe/:slug', cafeController.getCafeBySlugName);
-router.get('/top', cafeController.getTopCafes);
+router.get('/cafe/:slug', 
+    catchErrors(cafeController.getCafeBySlugName)
+);
+
+router.get('/top', 
+    catchErrors(cafeController.getTopRatedCafes)
+);
+
 router.get('/add',
     authController.userIsLoggedIn,
     cafeController.addNewCafe
