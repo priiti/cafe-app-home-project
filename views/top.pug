@@ -1,8 +1,19 @@
 extends layout
 
-include components/_topCafesTable
-
 block content
     .container.inner
-        h1 Top 10
-        +topCafesTable(cafes)
+        h1.main-heading #{cafes.length} parimat kohvikut
+        table.table.table-hover
+            thead
+                tr  
+                    th #
+                    th Kohviku nimi
+                    th Asukoht
+                    th Keskmine hinnang
+            tbody
+                each cafe, i in cafes
+                    tr
+                        td #{i + 1}
+                        td #{cafe.name}
+                        td #{cafe.location}
+                        td #{cafe.averageRating.toFixed(2)} / 5

@@ -77,15 +77,14 @@ exports.updateCafeDataChanges = async (req, res) => {
 exports.getTopRatedCafes = async (req, res) => {
     const cafes = await Cafe.getTopRatedCafes();
 
-    res.json(cafes);
+    res.render('top', {
+        title: 'Parimad kohvikud',
+        cafes: cafes
+    });
 };
 
 exports.getCafeBySlugName = async (req, res, next) => {
-    const cafe = await Cafe.findOne({ slug: req.params.slug })
-        .populate({
-            path: 'creator reviews',
-            options: { sort: { 'created': -1 } }
-    });
+    const cafe = await Cafe.findOne({ slug: req.params.slug });
 
     if (!cafe) {
         next();

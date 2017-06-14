@@ -1,10 +1,10 @@
 exports.menu = [
     { slug: '/cafes', title: 'Kohvikud'},
-    { slug: '/top', title: 'Top 10'},
+    { slug: '/top', title: 'Top'},
     { slug: '/add', title: 'Lisa uus'},
 ];
 
-exports.dump = obj => JSON.stringify(obj, null, 2);
+exports.dump = data => JSON.stringify(data, null, 2);
 
 exports.moment = require('moment');
 

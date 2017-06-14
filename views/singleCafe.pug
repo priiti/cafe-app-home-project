@@ -4,6 +4,7 @@ include components/_reviewForm
 include components/_review
 
 block content
+    pre= h.dump(cafe)
     .container
         .single
             .single-cafe
@@ -14,8 +15,8 @@ block content
 
                 .single-cafe-summary
                     i(class="fa fa-map-marker")  #{cafe.location}
-                .single-cafe-summary
-                    i(class="fa fa-star")  Hinnang
+                //- .single-cafe-summary
+                //-     i(class="fa fa-star")  Hinnang
 
                 if user && cafe.creator.equals(user._id)
                     .single-cafe-summary

@@ -81,9 +81,10 @@ cafeSchema.statics.getTopRatedCafes = function() {
         //     averageRating: { $avg: '$reviews.rating' }
         // } }
         { $project: {
-            averageRating: { $avg: '$reviews.rating' },
             name: '$$ROOT.name',
-            reviews: '$$ROOT.reviews'
+            reviews: '$$ROOT.reviews',
+            location: '$$ROOT.location',
+            averageRating: { $avg: '$reviews.rating' }
         } },
         { $sort: { averageRating: -1 } },
         { $limit: 10 }
@@ -98,5 +99,13 @@ cafeSchema.virtual('reviews', {
     localField: '_id',
     foreignField: 'cafe'
 });
+
+function autoPopulate(next) {
+    this.populate({ path: 'creator reviews', options: { $sort: { 'created': -1 } } });
+    next();
+}
+
+cafeSchema.pre('find', autoPopulate);
+cafeSchema.pre('findOne', autoPopulate);
 
 module.exports = mongoose.model('Cafe', cafeSchema);
