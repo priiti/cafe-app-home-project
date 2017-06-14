@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Cafe = mongoose.model('Cafe');
 const { isUserCafeOwner,  checkUserRolesAndPermissions } = require('./../middleware/permissions');
+const { flashErrorMessages } = require('./../applicationHelpers');
+
 
 exports.getAllCafes = async (req, res) => {
     const cafes = await Cafe.find();
@@ -14,8 +16,9 @@ exports.getAllCafes = async (req, res) => {
 
 exports.addNewCafe = (req, res) => {
     if (!checkUserRolesAndPermissions(req.user.role)) {
-        req.flash('warning', 'Sul ei ole õigusi kohvikute lisamiseks');
+        req.flash('warning', flashErrorMessages.noUserRights);
         res.redirect('/');
+        return;
     }
 
     res.render('editCafe', {
@@ -26,7 +29,7 @@ exports.addNewCafe = (req, res) => {
 
 exports.saveNewCafeIntoDatabase = async (req, res) => {
     if (!checkUserRolesAndPermissions(req.user.role)) {
-        req.flash('warning', 'Sul ei ole õigusi kohvikute lisamiseks');
+        req.flash('warning', flashErrorMessages.noUserRights);
         res.redirect('/');
     }
 

@@ -5,7 +5,7 @@ exports.isUserCafeOwner = (cafe, creator) => {
     return true;
 };
 
-exports.checkUserRolesAndPermissions = (role) => {
+exports.checkUserRolesAndPermissions = role => {
     switch (role) {
         // Admin
         case 1:
