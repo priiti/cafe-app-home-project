@@ -10,7 +10,7 @@ Tested to build a website using Node and Express framework for the backend. Main
 * Pug template engine
 * Passport.js
 
-#### Live site
+#### Live site (just an overview) :shipit:
 * https://cafe-home-project.herokuapp.com/
 
 #### Some tutorials, documentation used in this project:
