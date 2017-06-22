@@ -1,9 +1,9 @@
 mixin cafesList(cafes)
     .cards
         each cafe in cafes
-            a(class="card" href=`cafe/${cafe.slug}`)
+            a(class="card" href=`/cafe/${cafe.slug}`)
             
-                span(class="card-header" style=`background-image: url(uploads/${cafe.photo});`)
+                span(class="card-header" style=`background-image: url(/uploads/${cafe.photo});`)
                     span(class="card-title")
                         h3 #{cafe.name}
 

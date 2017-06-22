@@ -5,7 +5,14 @@ const { flashErrorMessages } = require('./../applicationHelpers');
 
 
 exports.getAllCafes = async (req, res) => {
-    const cafes = await Cafe.find();
+    const page = req.params.page || 1;
+    const limit = 6;
+    const skip = (page * limit) - limit;
+
+    const cafes = await Cafe
+        .find()
+        .skip(skip)
+        .limit(limit);
 
     res.render('cafes', {
         title: 'Kohvikud',

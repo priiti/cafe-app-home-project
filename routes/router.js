@@ -19,6 +19,10 @@ router.get('/cafes',
     catchErrors(cafeController.getAllCafes)
 );
 
+router.get('/cafes/page/:page', 
+    catchErrors(cafeController.getAllCafes)
+);
+
 router.get('/cafe/:slug', 
     catchErrors(cafeController.getCafeBySlugName)
 );
