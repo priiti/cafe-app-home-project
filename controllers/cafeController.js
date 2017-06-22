@@ -20,6 +20,12 @@ exports.getAllCafes = async (req, res) => {
 
     const pages = Math.ceil(count / limit);
 
+    if (!cafes.length && skip) {
+        req.flash('info', `Lehte ${page} ei eksisteeri, Teid suunatakse lehele ${pages}.`);
+        res.redirect(`/cafes/page/${pages}`);
+        return;
+    }
+
     res.render('cafes', {
         title: 'Kohvikud',
         heading: 'Kohvikud',
