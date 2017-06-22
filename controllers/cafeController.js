@@ -8,16 +8,22 @@ exports.getAllCafes = async (req, res) => {
     const page = req.params.page || 1;
     const limit = 6;
     const skip = (page * limit) - limit;
-
-    const cafes = await Cafe
+    
+    const cafesPromise = Cafe
         .find()
         .skip(skip)
         .limit(limit);
+    
+    const countPromise = Cafe.count();
+
+    const [ cafes, count ] = await Promise.all([cafesPromise, countPromise]);
+
+    const pages = Math.ceil(count / limit);
 
     res.render('cafes', {
         title: 'Kohvikud',
         heading: 'Kohvikud',
-        cafes: cafes
+        cafes, page, pages, count
     });
 };
 

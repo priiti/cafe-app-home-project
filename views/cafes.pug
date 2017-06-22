@@ -1,7 +1,10 @@
 extends layout
 
 include components/_cafesList
+include components/_pagination
 
 block content
     .container
         +cafesList(cafes)
+    .container
+        +pagination(page, pages, count)

@@ -1,0 +1,11 @@
+mixin pagination(page, pages, count)
+    nav
+        ul.pagination
+            li.page-item
+                if page > 1
+                    a.page-link(href=`/cafes/page/${page - 1}`) Eelmine
+            li.page-item
+                a Leht #{page} / #{pages}
+            li.page-item
+                if page < pages
+                    a.page-link(href=`/cafes/page/${parseFloat(page) + 1}`) Järgmine
