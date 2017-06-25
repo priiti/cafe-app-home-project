@@ -53,6 +53,7 @@ exports.saveNewCafeIntoDatabase = async (req, res) => {
     }
 
     req.body.creator = req.user._id;
+    
     const cafe = await (new Cafe(req.body)).save();
 
     req.flash('success', 'Kohviku lisamine õnnestus');
